@@ -1,0 +1,31 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+title: Animals
+email: test@exemple.com
+description: "Demo jekyll with animals"
+baseurl: "/animals"
+url: "https://jblaise.github.io"
+repository: "jblaise/animals"
+
+timezone: 'Europe/Paris'
+
+markdown: kramdown
+kramdown:
+    parse_block_html: true
+    input: GFM
+    hard_wrap: false
+
+collections:
+    animals:
+        output: true
+        mammals:
+            output: true
+            cats:
+                output: true
+            dogs:
+                output: true
+        reptiles:
+            output: true
+            lizards:
+                output: true

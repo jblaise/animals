@@ -1,0 +1,6 @@
+{% assign animals = site.animals| sort:'title' %}
+{% for animal in animals %}
+{% if page.url != animal.url  and include.taxonomy == nil or animal.url contains include.taxonomy %}
+<a  href={{ animal.url | prepend: site.baseurl }}>{{animal.title}}</a>
+{% endif %}
+{% endfor %}
