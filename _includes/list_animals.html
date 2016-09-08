@@ -1,6 +1,12 @@
 {% assign animals = site.animals| sort:'title' %}
+{% assign from = page.url | remove: '/index.html' %}
+{% assign deep = (page.url | split: '/' | size) + 1 %}
 {% for animal in animals %}
-{% if page.url != animal.url  and include.taxonomy == nil or animal.url contains include.taxonomy %}
-<a  href={{ animal.url | prepend: site.baseurl }}>{{animal.title}}</a>
+{% assign d = animal.url | remove: '/index.html' | split: '/' | size %}
+{% if animal.url contains "index" or animal.url == page.url %}
+{% else %}
+    {% if animal.url contains from  and (include.dig or deep == d) %}
+    <a  href={{ animal.url | prepend: site.baseurl }}>{{animal.title}}</a>
+    {% endif %}
 {% endif %}
 {% endfor %}
